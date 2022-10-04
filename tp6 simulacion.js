@@ -143,7 +143,7 @@ function main(numRepartidores, final){
         }
       }
     NT = NT + 1;
-    calcularSTP;
+    calcularSTP();
     if (T >=TF){
     repetir= false;
     calculos();
