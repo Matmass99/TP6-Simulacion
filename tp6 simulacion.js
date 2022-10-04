@@ -140,7 +140,7 @@ function main(numRepartidores, final){
     TPLL = T + IP;
     TE = getTE();
     var i = buscarMenorTC();
-    //TPR = getTPR(); 
+    TRP = getTRP(); 
     if(T>=TC[i]){
       calcularSTO();
       calcularTCSinEspera();
@@ -150,13 +150,7 @@ function main(numRepartidores, final){
           if(R <= 0.75){
             ARR = ARR + 1;
           }
-          else {
-            calcularSTE();
-            calcularTC();
-          }
-        
-        }
-        else{
+        }else{
             calcularSTE();
             calcularTC();
         }
