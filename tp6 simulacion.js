@@ -28,7 +28,7 @@ function init_variables(tiempo_fin){
     TC = [];
     PPCP = 0;
     PTE = 0;
-    PTOR = 0;
+    PTOR = [];
     PTP = 0;
     cantidadRepartidores = 0;
 }
@@ -37,6 +37,8 @@ function asignar_Tiempos(cantidadRepartidores){
   for (var i=0; i<cantidadRepartidores; i++){
     TC.push(0);
     STO.push(0);  
+    PTOR.push(0);
+ 
   }
 }
 
@@ -78,7 +80,7 @@ function calculos(){
   for(var i=0;i<cantidadRepartidores;i++){
     PPCP = (ARR/NT) * 100;
     PTE = STE / NT;
-    PTOR = (STO[i]/NT) * 100
+    PTOR[i] = (STO[i]/NT) * 100
     PTP = (STP / NT) * 100
   };
 
@@ -89,44 +91,36 @@ function mostrarResultados(){
     console.log("Repartidor N°"+ i);
     console.log("PPCP = "+ PPCP);
     console.log("PTE = "+ PTE);
-    console.log("PTOR = "+ PTOR);
+    console.log("PTOR = "+ PTOR[i]);
     console.log("PTP = "+ PTP);
   }
 }
 
 
 
-function calcularSTO(){
-  for (i=0;i<cantidadRepartidores;i++){
-    STO[i] = STO[i] + (T - TC[i]);
-  }
+function calcularSTO(i){
+ 
+  STO[i] = STO[i] + (T - TC[i]);
 }
 
-function calcularSTE(){
-  for (i=0;i<cantidadRepartidores;i++){
-    STE = STE + (TC[i]-T);
-  }
+function calcularSTE(i){
+
+  STE = STE + (TC[i]-T);
 }
 
-function calcularSTP(){
-  for (i=0;i<cantidadRepartidores;i++){
-    STP = STP + (TC[i]-T);
-  } 
-  
+function calcularSTP(i){
+
+  STP = STP + (TC[i] - T);
 }
 
-function calcularTC(){
-    for (i=0;i<cantidadRepartidores;i++){
-      //TC[i] = TC[i] + TE + TRP;
-      TC[i] = TC[i] + TE ;
-    }
+function calcularTC(i){
+
+    TC[i] = TC[i] + TE + TRP;
 }
 
-function calcularTCSinEspera(){
-  for (i=0;i<cantidadRepartidores;i++){
-    //TC[i] = TC[i] + TE + TRP;
-    TC[i] = T + TE ;
-  }
+function calcularTCSinEspera(i){
+
+  TC[i] = T + TE + TRP;
 }
 
 function main(numRepartidores, final){
@@ -142,8 +136,9 @@ function main(numRepartidores, final){
     var i = buscarMenorTC();
     TRP = getTRP(); 
     if(T>=TC[i]){
-      calcularSTO();
-      calcularTCSinEspera();
+      calcularSTO(i);
+      calcularTCSinEspera(i);
+
     } else {
         if(TC[i] - T >= 60){
           var R = Math.random();
@@ -151,12 +146,12 @@ function main(numRepartidores, final){
             ARR = ARR + 1;
           }
         }else{
-            calcularSTE();
-            calcularTC();
+          calcularSTE(i);
+          calcularTC(i);
         }
       }
     NT = NT + 1;
-    calcularSTP();
+    calcularSTP(i);
     if (T >=TF){
     repetir= false;
     calculos();
@@ -164,4 +159,4 @@ function main(numRepartidores, final){
     }
   }
 }
-main(10, 50000);
+main(2, 50000);
