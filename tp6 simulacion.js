@@ -77,11 +77,15 @@ function calculos(){
 }
 
 function mostrarResultados(){
+  for(var i=0;i<cantidadRepartidores;i++){
+    console.log("Repartidor N°"+ i);
     console.log("PPCP = "+ PPCP);
     console.log("PTE = "+ PTE);
-    console.log("PTOR = "+ PTOR);
+    console.log("PTOR = "+ PTOR[i]);
     console.log("PTP = "+ PTP);
+  }
 }
+
 
 
 function calcularSTO(){
@@ -110,6 +114,13 @@ function calcularTC(){
     }
 }
 
+function calcularTCSinEspera(){
+  for (i=0;i<cantidadRepartidores;i++){
+    //TC[i] = TC[i] + TE + TRP;
+    TC[i] = T + TE ;
+  }
+}
+
 function main(numRepartidores, final){
   init_variables(final);
   cantidadRepartidores= numRepartidores;
@@ -124,7 +135,7 @@ function main(numRepartidores, final){
     //TPR = getTPR(); 
     if(T>=TC[i]){
       calcularSTO();
-      calcularTC();
+      calcularTCSinEspera();
     } else {
         if(TC[i] - T >= 60){
           var R = Math.random();
