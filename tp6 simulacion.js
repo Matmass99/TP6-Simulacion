@@ -53,18 +53,22 @@ function buscarMenorTC(){
 
 function getTE() {
   var R = Math.random();
-  //return
+  var f = ln(-R+1)/(-0,0026);
+  return f;
 }
 
 function getIP() {
   var R = Math.random();
-  //return 
+  //var fs = ln(-R+1)/(-0,0014);
+  //var ds = ln(-R+1)/(-0,0025);
+  //return f;
 }
 
-/*function getTPR() {
+function getTPR() {
   var R = Math.random();
-  return 
-}*///Falta la fdp de TPR
+  var f = ln(-R+1)/(-0,0024);
+  return f
+}
 
 function calculos(){
   for(var i=0;i<cantidadRepartidores;i++){
