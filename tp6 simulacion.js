@@ -53,8 +53,7 @@ function buscarMenorTC(){
 
 function getTE() {
   var R = Math.random();
-  //return 
-  return R;
+  //return
 }
 
 function getIP() {
