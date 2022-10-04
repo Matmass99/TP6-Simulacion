@@ -53,20 +53,20 @@ function buscarMenorTC(){
 
 function getTE() {
   var R = Math.random();
-  var f = ln(-R+1)/(-0,0026);
+  var f = 0,0026*e^(-0,0026*R);
   return f;
 }
 
 function getIP() {
   var R = Math.random();
-  //var fs = ln(-R+1)/(-0,0014);
-  //var ds = ln(-R+1)/(-0,0025);
+  //var fs = 0,0014*e^(-0,0014*R);
+  //var ds = 0,0025*e^(-0,0025*R);
   //return f;
 }
 
 function getTPR() {
   var R = Math.random();
-  var f = ln(-R+1)/(-0,0024);
+  var f = 0,0024*e^(-0,0024*R);
   return f
 }
 
