@@ -52,22 +52,26 @@ function buscarMenorTC(){
 
 
 function getTE() {
+  var R = random();
+  return -(Math.log(R/26)/(26));
+  
+}
+function random(){
   var R = Math.random();
-  var f = ln(-R+1)/(-0,0026);
-  return f;
+  return R;
 }
 
 function getIP() {
-  var R = Math.random();
-  //var fs = ln(-R+1)/(-0,0014);
-  //var ds = ln(-R+1)/(-0,0025);
-  //return f;
+  var R = random();
+  return  -(Math.log(R/14)/(14));
+  //var ds = -(Math.log(R/25)/(25));
+  
 }
 
-function getTPR() {
-  var R = Math.random();
-  var f = ln(-R+1)/(-0,0024);
-  return f
+function getTRP() {
+  var R = random();
+  return -(Math.log(R/24)/(24));
+  
 }
 
 function calculos(){
