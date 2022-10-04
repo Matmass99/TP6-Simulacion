@@ -89,7 +89,7 @@ function mostrarResultados(){
     console.log("Repartidor N°"+ i);
     console.log("PPCP = "+ PPCP);
     console.log("PTE = "+ PTE);
-    console.log("PTOR = "+ PTOR[i]);
+    console.log("PTOR = "+ PTOR);
     console.log("PTP = "+ PTP);
   }
 }
