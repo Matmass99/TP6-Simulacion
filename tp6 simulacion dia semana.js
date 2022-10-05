@@ -10,7 +10,6 @@ var TC;
 var PPCP;
 var PTE;
 var PTOR;
-var PTP;
 var cantidadRepartidores;
 var TE;
 var TRP;
@@ -29,7 +28,6 @@ function init_variables(tiempo_fin){
     PPCP = 0;
     PTE = 0;
     PTOR = [];
-    PTP = 0;
     cantidadRepartidores = 0;
 }
 
@@ -43,8 +41,8 @@ function asignar_Tiempos(cantidadRepartidores){
 }
 
 function buscarMenorTC(){
-  var j=0;
-  for (i=0;i<cantidadRepartidores;i++){
+  var j=1;
+  for (i=1;i<cantidadRepartidores;i++){
     if(TC[j]>TC[i]){
       j=i;
     }
@@ -66,6 +64,7 @@ function random(){
 function getIP() {
   var R = random();
   return  -(Math.log(R/14)/(14));
+
   
 }
 
@@ -80,7 +79,6 @@ function calculos(){
     PPCP = (ARR/NT) * 100;
     PTE = STE / NT;
     PTOR[i] = (STO[i]/NT) * 100
-    PTP = (STP / NT) * 100
   };
 
 }
@@ -91,7 +89,6 @@ function mostrarResultados(){
     console.log("PPCP = "+ PPCP);
     console.log("PTE = "+ PTE);
     console.log("PTOR = "+ PTOR[i]);
-    console.log("PTP = "+ PTP);
   }
 }
 
@@ -107,14 +104,9 @@ function calcularSTE(i){
   STE = STE + (TC[i]-T);
 }
 
-function calcularSTP(i){
-
-  STP = STP + (TC[i] - T);
-}
-
 function calcularTC(i){
 
-    TC[i] = TC[i] + TE + TRP;
+  TC[i] = TC[i] + TE + TRP;
 }
 
 function calcularTCSinEspera(i){
@@ -150,7 +142,6 @@ function main(numRepartidores, final){
         }
       }
     NT = NT + 1;
-    calcularSTP(i);
     if (T >=TF){
     repetir= false;
     calculos();
@@ -158,4 +149,3 @@ function main(numRepartidores, final){
     }
   }
 }
-main(4, 50000);

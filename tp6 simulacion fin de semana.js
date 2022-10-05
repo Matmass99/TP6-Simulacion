@@ -10,7 +10,6 @@ var TC;
 var PPCP;
 var PTE;
 var PTOR;
-var PTP;
 var cantidadRepartidores;
 var TE;
 var TRP;
@@ -29,7 +28,6 @@ function init_variables(tiempo_fin){
     PPCP = 0;
     PTE = 0;
     PTOR = [];
-    PTP = 0;
     cantidadRepartidores = 0;
 }
 
@@ -66,8 +64,6 @@ function random(){
 function getIP() {
   var R = random();
   return  -(Math.log(R/25)/(25));
-  //var ds = -(Math.log(R/25)/(25));
-  
 }
 
 function getTRP() {
@@ -81,7 +77,6 @@ function calculos(){
     PPCP = (ARR/NT) * 100;
     PTE = STE / NT;
     PTOR[i] = (STO[i]/NT) * 100
-    PTP = (STP / NT) * 100
   };
 
 }
@@ -92,7 +87,6 @@ function mostrarResultados(){
     console.log("PPCP = "+ PPCP);
     console.log("PTE = "+ PTE);
     console.log("PTOR = "+ PTOR[i]);
-    console.log("PTP = "+ PTP);
   }
 }
 
@@ -106,11 +100,6 @@ function calcularSTO(i){
 function calcularSTE(i){
 
   STE = STE + (TC[i]-T);
-}
-
-function calcularSTP(i){
-
-  STP = STP + (TC[i] - T);
 }
 
 function calcularTC(i){
@@ -151,7 +140,6 @@ function main(numRepartidores, final){
         }
       }
     NT = NT + 1;
-    calcularSTP(i);
     if (T >=TF){
     repetir= false;
     calculos();
@@ -159,4 +147,5 @@ function main(numRepartidores, final){
     }
   }
 }
-main(2, 50000);
+main(3, 50000);//se arrepienten
+//main(4, 100000);//no se arrepienten
