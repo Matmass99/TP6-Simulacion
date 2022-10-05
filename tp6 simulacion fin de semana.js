@@ -129,7 +129,7 @@ function main(numRepartidores, final){
       calcularTCSinEspera(i);
 
     } else {
-        if(TC[i] - T >= 60){
+        if(TC[i] - T >= 45){
           var R = Math.random();
           if(R <= 0.75){
             ARR = ARR + 1;
@@ -147,5 +147,3 @@ function main(numRepartidores, final){
     }
   }
 }
-main(3, 50000);//se arrepienten
-//main(4, 100000);//no se arrepienten
