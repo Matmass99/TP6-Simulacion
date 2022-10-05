@@ -43,8 +43,8 @@ function asignar_Tiempos(cantidadRepartidores){
 }
 
 function buscarMenorTC(){
-  var j=1;
-  for (i=1;i<cantidadRepartidores;i++){
+  var j=0;
+  for (i=0;i<cantidadRepartidores;i++){
     if(TC[j]>TC[i]){
       j=i;
     }
@@ -65,7 +65,7 @@ function random(){
 
 function getIP() {
   var R = random();
-  return  -(Math.log(R/25)/(25));
+  return  -(Math.log(R/14)/(14));
   
 }
 
@@ -158,4 +158,4 @@ function main(numRepartidores, final){
     }
   }
 }
-main(2, 50000);
+main(4, 50000);

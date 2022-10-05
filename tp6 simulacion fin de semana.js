@@ -65,7 +65,7 @@ function random(){
 
 function getIP() {
   var R = random();
-  return  -(Math.log(R/14)/(14));
+  return  -(Math.log(R/25)/(25));
   //var ds = -(Math.log(R/25)/(25));
   
 }
@@ -115,7 +115,7 @@ function calcularSTP(i){
 
 function calcularTC(i){
 
-    TC[i] = TC[i] + TE + TRP;
+  TC[i] = TC[i] + TE + TRP;
 }
 
 function calcularTCSinEspera(i){
